@@ -31,6 +31,19 @@ Plugin 'vimwiki/vimwiki'
 " Comments
 Plugin 'tomtom/tcomment_vim'
 
+" YouCompleteMe
+" Plugin 'Valloric/YouCompleteMe'
+
+" MultipleCursors
+Plugin 'terryma/vim-multiple-cursors'
+
+" MiniBufExpl
+Plugin 'fholgado/minibufexpl.vim'
+
+" Plugin 'bling/vim-bufferline'
+
+" vim-gitgutter
+Plugin 'airblade/vim-gitgutter'
 " Keep Plugin commands between vundle#begin/end.
 
 " All of your Plugins must be added before the following line
@@ -152,6 +165,11 @@ filetype indent on	" enable filetype specific indentation
 nnoremap j gj
 nnoremap k gk
 
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" YouCompleteMe
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:ycm_server_python_interpreter = '/usr/bin/python'
+" let g:ycm_clangd_binary_path = "~/Downloads/software/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-16.04/bin/clangd"
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " Ctrl-p
@@ -167,6 +185,13 @@ let g:ctrlp_working_path_mode = 'ra'
 " automatically generate HTML files
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'auto_export': 1}]
 
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" minibufexpl
+"""""""""""""""""""""""""""""""""""""""""""""""""
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1 
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
