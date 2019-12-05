@@ -13,6 +13,12 @@ Your first step is to clone this repository:
 
     git clone https://github.com/hamvocke/dotfiles.git ~/.dotfiles
 
+and then run the install files for the module
+    
+    cd ~/.dotfiles/vim
+    chmod +x install.sh
+    ./install.sh
+
 ### Manual Installation
 Create symbolic links for the configurations you want to use, e.g.:
 
