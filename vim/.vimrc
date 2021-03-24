@@ -5,7 +5,7 @@ set nocompatible
 filetype off
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -16,17 +16,8 @@ Plugin 'gmarik/Vundle.vim'
 " NERD tree - tree explorer
 Plugin 'scrooloose/nerdtree'
 
-" Base16 colorschemes
-" Plugin 'chriskempson/base16-vim'
-
 " Ctrl-p
 Plugin 'kien/ctrlp.vim'
-
-" Elixir syntax highlighting
-" Plugin 'elixir-lang/vim-elixir'
-
-" Vimwiki
-Plugin 'vimwiki/vimwiki'
 
 " Comments
 Plugin 'tomtom/tcomment_vim'
@@ -44,6 +35,13 @@ Plugin 'fholgado/minibufexpl.vim'
 
 " vim-gitgutter
 Plugin 'airblade/vim-gitgutter'
+
+" vim-flake8
+Plugin 'nvie/vim-flake8'
+
+" ale
+Plugin 'dense-analysis/ale'
+
 " Keep Plugin commands between vundle#begin/end.
 
 " All of your Plugins must be added before the following line
@@ -65,6 +63,9 @@ nnoremap <leader><space> :nohlsearch<CR>
 " Invoke Ctrl-p with c-p
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = {
+    \ 'dir': '\.git\|logs|resources$'
+    \ }
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -122,12 +123,11 @@ set encoding=utf8
 " Define standard filetype
 set ffs=unix,dos,mac
 
-" let base16colorspace=256
-" colorscheme base16-default-dark
+colorscheme apprentice
 " set background=dark
 
 
-set cursorline	" highlight current active line
+" set cursorline	" highlight current active line
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " File Types
@@ -166,9 +166,21 @@ nnoremap j gj
 nnoremap k gk
 
 """""""""""""""""""""""""""""""""""""""""""""""""
+" vim-flake8
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" autocmd BufWritePost *.py call flake8#Flake8()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-ale
+"""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe
 """""""""""""""""""""""""""""""""""""""""""""""""
-" let g:ycm_server_python_interpreter = '/usr/bin/python'
+" let g:ycm_server_python_interpreter = '/usr/bin/python3.7'
 " let g:ycm_clangd_binary_path = "~/Downloads/software/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-16.04/bin/clangd"
 
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -177,13 +189,8 @@ nnoremap k gk
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_max_files=0
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""
-" vimwiki
-"""""""""""""""""""""""""""""""""""""""""""""""""
-" automatically generate HTML files
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'auto_export': 1}]
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " minibufexpl
