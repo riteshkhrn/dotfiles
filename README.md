@@ -3,15 +3,11 @@ dotfiles
 
 A collection of my personal dotfiles. Here's a little preview of what it can look like:
 
-**tmux**
-
-![tmux screenshot](screenshot.png)
-
 Installation
 ------------
 Your first step is to clone this repository:
 
-    git clone https://github.com/hamvocke/dotfiles.git ~/.dotfiles
+    git clone https://github.com/riteshkhrn/dotfiles.git ~/.dotfiles
 
 and then run the install files for the module
     
