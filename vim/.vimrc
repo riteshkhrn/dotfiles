@@ -23,7 +23,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 
 " YouCompleteMe
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 " MultipleCursors
 Plugin 'terryma/vim-multiple-cursors'
@@ -41,6 +41,12 @@ Plugin 'nvie/vim-flake8'
 
 " ale
 Plugin 'dense-analysis/ale'
+
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" " Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 
 " Keep Plugin commands between vundle#begin/end.
 
@@ -64,7 +70,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\.git\|logs|resources$'
+    \ 'dir': '\.git\|logs\|resources$'
     \ }
 
 
@@ -124,9 +130,11 @@ set encoding=utf8
 set ffs=unix,dos,mac
 
 colorscheme apprentice
-" set background=dark
+set background=dark
 
-
+let &t_SI = "\<Esc>[4 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[6 q"
 " set cursorline	" highlight current active line
 
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -168,7 +176,20 @@ nnoremap k gk
 """""""""""""""""""""""""""""""""""""""""""""""""
 " vim-flake8
 """""""""""""""""""""""""""""""""""""""""""""""""
+" added ~/.local/bin/flake8 to path
+" let g:flake8_cmd='/home/uic16913/.local/bin/flake8'
 " autocmd BufWritePost *.py call flake8#Flake8()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" ultisnips
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" Trigger configuration. You need to change this to something other than <tab>
+" if you use one of the following:
+" " - https://github.com/Valloric/YouCompleteMe
+" " - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<c-x>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " vim-ale
@@ -180,7 +201,8 @@ let g:ale_lint_on_enter = 0
 """""""""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe
 """""""""""""""""""""""""""""""""""""""""""""""""
-" let g:ycm_server_python_interpreter = '/usr/bin/python3.7'
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+let g:ycm_server_python_interpreter = '/usr/bin/python3.8'
 " let g:ycm_clangd_binary_path = "~/Downloads/software/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-16.04/bin/clangd"
 
 """""""""""""""""""""""""""""""""""""""""""""""""
